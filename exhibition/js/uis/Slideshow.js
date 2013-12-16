@@ -54,10 +54,6 @@ define(function (require) {
 			}
 		};
 
-		this.exitSlideShow = function exitSlideShow() {
-			//slideShowModel.set("display", false);
-		};
-
 		this.setPhotoset = function setPhotoset(photoset) {
 			if (!photoset) { return false; }
 			photosetModel.reset(photoset.map(function (photo) {
