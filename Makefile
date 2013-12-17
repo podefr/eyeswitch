@@ -7,6 +7,7 @@ styles:
 update:
 	mkdir -p public/exhibition
 	cp -rf ../exhibition/public/* public/exhibition/
+	rm -rf public/exhibition/*config.js
 
 config:
 	cp config.js public/exhibition/config.js
