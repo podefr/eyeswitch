@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Exhibition</title>
+		<link rel="icon" type="image/png" href="images/fav-icon.png" />
+		<link href="styles/main.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body>
+
+		<div class="navigation">
+			<button class="back-btn" data-events="listen: click, back">BACK</button>
+			<button class="home-btn" data-events="listen: click, home"></button>
+		</div>
+
+		<a class="logo-container" href="../index.html"></a>
+
+		<div class="contact-info">
+			<span class="contact-caption">Contact:</span>
+			<a href="" class="contact-link"></a>
+		</div>
+
+		<div class="main">
+
+		</div>
+
+		<div class="collections" data-bind="foreach">
+			<div class="content" data-event="listen: click, drillin" data-bind="bind: background, url">
+				<h1><span data-bind="bind: getId"></span> <span data-bind="bind: innerHTML, title"></span></h1>
+			</div>
+		</div>
+
+		<div class="photosets" data-bind="foreach">
+			<div class="content" data-event="listen: click, drillin" data-bind="bind: background, url">
+				<h1><span></span> <span data-bind="bind: innerHTML, title"></span></h1>
+			</div>
+		</div>
+
+		<div class="collage">
+			<div class="repeat" data-collage="foreach">
+				<div class="content" data-collage="bind: background, url" data-events="listen: click, startSlideshow">
+				</div>
+			</div>
+		</div>
+
+		<div class="slideshow">
+			<a class="slideshow-btn left-btn" data-slideshow="bind: show, hasPrevious" data-events="listen: click, previous"></a>
+			<a class="slideshow-btn right-btn" data-slideshow="bind: show, hasNext" data-events="listen: click, next"></a>
+			<div class="left-image" data-slideshow="bind: background, previous; bind: show, hasPrevious" data-events="listen: click, previous"></div>
+			<div class="center-image" data-slideshow="bind: background, current" data-events="listen: click, displayVideoContainer">
+
+			</div>
+			<div class="right-image" data-slideshow="bind: background, next; bind: show, hasNext" data-events="listen: click, next"></div>
+		</div>
+
+		<div class="videoContainer">
+			<a class="close-btn">X</a>
+			<object type="application/x-shockwave-flash" width="100" height="100">
+				<param name="flashvars" value="flickr_show_info_box=true"></param>
+				<param name="movie" value=""></param>
+				<param name="allowFullScreen" value="true"></param>
+				<embed type="application/x-shockwave-flash"
+				width="100" height="100" src=""	allowfullscreen="true"
+				flashvars="flickr_show_info_box=true"></embed>
+			</object>
+		</div>
+
+		<script src="js/exhibition.js"></script>
+		<script>
+			var exhibition = require("exhibition");
+
+			exhibition.init({
+				"Flickr": {
+					"username": "eyeswitch",
+
+					// Design
+					"collection": "99725714-72157639686852086",
+
+					"api_key": "ebbfb6d3cec5ece759284bf5bc7fd5d8"
+				},
+
+				"Exhibition": {
+					"mail": {
+						"address": "rob@eyeswitch.com",
+						"text": "rob@eyeswitch.com"
+					},
+					"title": ":: Design ::"
+				}
+			});
+		</script>
+	</body>
+</html>

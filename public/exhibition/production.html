@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Exhibition</title>
+		<link rel="icon" type="image/png" href="images/fav-icon.png" />
 		<link href="styles/main.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
@@ -12,7 +13,7 @@
 			<button class="home-btn" data-events="listen: click, home"></button>
 		</div>
 
-		<a class="logo-container" href="http://eyeswitch.com"></a>
+		<a class="logo-container" href="../index.html"></a>
 
 		<div class="contact-info">
 			<span class="contact-caption">Contact:</span>
@@ -46,19 +47,43 @@
 			<a class="slideshow-btn left-btn" data-slideshow="bind: show, hasPrevious" data-events="listen: click, previous"></a>
 			<a class="slideshow-btn right-btn" data-slideshow="bind: show, hasNext" data-events="listen: click, next"></a>
 			<div class="left-image" data-slideshow="bind: background, previous; bind: show, hasPrevious" data-events="listen: click, previous"></div>
-			<div class="center-image" data-slideshow="bind: background, current"></div>
+			<div class="center-image" data-slideshow="bind: background, current" data-events="listen: click, displayVideoContainer">
+
+			</div>
 			<div class="right-image" data-slideshow="bind: background, next; bind: show, hasNext" data-events="listen: click, next"></div>
 		</div>
 
+		<div class="videoContainer">
+			<a class="close-btn">X</a>
+			<object type="application/x-shockwave-flash" width="100" height="100">
+				<param name="flashvars" value="flickr_show_info_box=true"></param>
+				<param name="movie" value=""></param>
+				<param name="allowFullScreen" value="true"></param>
+				<embed type="application/x-shockwave-flash"
+				width="100" height="100" src=""	allowfullscreen="true"
+				flashvars="flickr_show_info_box=true"></embed>
+			</object>
+		</div>
 
-
-		<script src="bower_components/requirejs/require.js" data-main="main.js"></script>
-		<script src="bower_components/emily-prod/Emily.js"></script>
-		<script src="bower_components/olives-prod/Olives.js"></script>
+		<script src="js/exhibition.js"></script>
 		<script>
-			require.config({
-				paths: {
-					"querystring": "libs/querystring"
+			var exhibition = require("exhibition");
+
+			exhibition.init({
+				"Flickr": {
+					"username": "eyeswitch",
+
+					"collection": "99725714-72157639691278335",
+
+					"api_key": "ebbfb6d3cec5ece759284bf5bc7fd5d8"
+				},
+
+				"Exhibition": {
+					"mail": {
+						"address": "rob@eyeswitch.com",
+						"text": "rob@eyeswitch.com"
+					},
+					"title": ":: Production ::"
 				}
 			});
 		</script>
